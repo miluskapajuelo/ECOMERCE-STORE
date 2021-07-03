@@ -11,7 +11,7 @@ const Input = ({attribute, handleChange, param}) => {
             placeholder= {attribute.placeholder}
             type= {attribute.type}
             onChange= {(e)=> handleChange(e.target.name, e.target.value)}
-            className= "regular-style"
+            className= {param?"regular-error":"regular-style" }
             />
         </div>   
         )

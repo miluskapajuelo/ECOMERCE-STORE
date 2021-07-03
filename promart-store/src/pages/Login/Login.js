@@ -10,20 +10,52 @@ const Login = () => {
 
     const [user, setUser]=useState('');
     const [password, setPassword]=useState('');
+    const [passwordError, setPasswordError]=useState(false);
+    const [loginError, setLoginError]=useState(false);
 
     function handleChange(name, value) {
         if(name ==='email'){
             setUser(value)
         }
         else{
-            setPassword(value)
+            if(value.length >6 || value.length === 0 ){
+                setPasswordError(false)
+                setPassword(value)    
+            }
+            else{
+                setPasswordError(true)
+                
+            }
+            
+        }
+    }
+
+    function ifMatch(param){
+        if(param.user.length >0 && param.password.length>0){
+            if(param.user ==="miluskapajuelo" && param.password ==='1234567'){
+                /* let ac = { param.user, param.password} lo desestructuramos */
+                const {user, password} = param
+                let ac = {user, password}
+                let account = JSON.stringify(ac)
+                localStorage.setItem('account', account)
+                setLoginError(false)
+            }
+            else{
+                setLoginError(true)
+                
+            }
+            
+        }
+        else{
+            setLoginError(true)
+            console.log('loginError, ', loginError)
         }
     }
 
     function handleSubmit(){
         const account = {user, password}
         if(account){
-            console.log(account)
+            ifMatch(account)
         }
     }
 
@@ -31,25 +63,29 @@ const Login = () => {
         <div className="login-container">   
         <div className="login-content">
             <Title text="Iniciar sesión"/>
-            <Label text="Email"/>
+            <Label text="Email" classText="label-text"/>
             <Input
             attribute={{
                 id: 'email',
                 name: 'email',
-                type: 'text',
+                type: 'email',
                 placeholder:'Ingrese su email'
             }}
             handleChange= {handleChange} />
-            <Label text="Contraseña"/>
+            <Label text="Contraseña" classText="label-text"/>
             <Input
             attribute={{
                 id: 'contraseña',
                 name: 'contraseña',
-                type: 'contraseña',
+                type: 'password',
                 placeholder:'Ingrese su contraseña'
             }}
-            handleChange= {handleChange} />
+            handleChange= {handleChange}
+            param={passwordError}
+             />
             </div>
+            {loginError &&
+            <Label text="email o contraseña incorrecta" classText="error-label"/>}
             <div className='submit-button-container'>
             <button 
             className='submit-button'

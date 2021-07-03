@@ -2,10 +2,9 @@ import React from 'react';
 import './Label.sass'
 
 
-const Label = (props) => {
-    const { text } = props;
+const Label = ({text, classText}) => {
     return(
-        <div className="label-text">{text}</div>   
+        <div className={classText}>{text}</div>   
         )
     }
 

@@ -1,3 +1,4 @@
+@import './../../../global.sass'
 @import './../../../assets/mixins/_form.sass'
 
 .input-container
@@ -5,4 +6,8 @@
     margin-bottom: 10px
 
 .regular-style
-    @include input
+    @include input($secondary)
+
+.regular-error
+    @include input($error)
+    border: 1px solid $error

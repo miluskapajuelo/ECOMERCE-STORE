@@ -16,14 +16,18 @@ const Login = () => {
     function handleChange(name, value) {
         if(name ==='email'){
             setUser(value)
+            setLoginError(false);
         }
         else{
             if(value.length >6 || value.length === 0 ){
-                setPasswordError(false)
-                setPassword(value)    
+                setPassword(value) 
+                /* errorHandling */
+                setPasswordError(false)                  
+                setLoginError(false); 
             }
             else{
                 setPasswordError(true)
+                setLoginError(false);
                 
             }
             
@@ -41,10 +45,8 @@ const Login = () => {
                 setLoginError(false)
             }
             else{
-                setLoginError(true)
-                
-            }
-            
+                setLoginError(true)     
+            }     
         }
         else{
             setLoginError(true)

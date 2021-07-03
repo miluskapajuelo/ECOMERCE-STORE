@@ -3,10 +3,15 @@
 
 .login-container
     @include displayFlex(column, center, center)
-
-
+    
 .submit-button-container
     width: 100%
-    margin-top: 20px
+    margin-top: 1.3rem
     .submit-button
         @include btn
+
+@media (min-width: 48rem)
+    .login-container
+        background-color: #fbfbcd
+        padding: 3.1rem
+        border-radius: 1.6rem

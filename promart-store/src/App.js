@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.sass';
-import Login from './pages/Login/Login'
+/* import Login from './components/Login/Login' */
+import Products from './components/Home/Products/Products'
 
 function App() {
   return (
     <div className="app-container">
-      <Login />
+      {/* <Login /> */}
+      <Products />
     </div>
   );
 }

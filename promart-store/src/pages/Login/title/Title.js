@@ -1,5 +1,5 @@
 import React from 'react';
-import './../title/title.sass';
+import './../title/Title.sass';
 
 const Title = (props) => {
     /* declaro un objeto y lo igualo a props */

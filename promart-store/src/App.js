@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import './App.sass';
 import Login from './pages/Login/Login'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-container">
       <Login />
     </div>
   );

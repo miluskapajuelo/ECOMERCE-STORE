@@ -1,16 +1,17 @@
 import React from 'react';
+import './Input.sass'
 
 
-const Input = ({attribute, handlerChange, param}) => {
+const Input = ({attribute, handleChange, param}) => {
     return(
-        <div>
+        <div className="input-container">
             <input 
             id= {attribute.id}
             name= {attribute.name}
             placeholder= {attribute.placeholder}
             type= {attribute.type}
-            onchange= {(e)=> handlerChange(e.target.name, e.target.value)}
-            className= "regular-state"
+            onChange= {(e)=> handleChange(e.target.name, e.target.value)}
+            className= "regular-style"
             />
         </div>   
         )

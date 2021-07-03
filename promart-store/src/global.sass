@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap')
+
 $primary: #ff8508
 $black: #000000
 $grey: #666666
@@ -9,8 +11,15 @@ $medium: 1.3rem
 /** font weight **/
 $bold: bold
 
+/** font-family **/
+$font-family: 'Roboto', sans-serif
+
 @mixin displayFlex ($direction, $justify, $alignItems) 
   display: flex
   flex-direction: $direction
   justify-content: $justify
   align-items: $alignItems
+
+body
+  width: 100vw
+  height: 100vh

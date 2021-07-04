@@ -2,65 +2,60 @@ import React, {useState} from 'react';
 import Title from './title/Title'
 import Label from './label/Label'
 import Input from './input/Input'
+import {getToken} from './../../services/login'
 import './Login.sass';
+import {useHistory} from 'react-router-dom'
+
 
 
 
 const Login = () => {
 
-    const [user, setUser]=useState('');
+    const [username, setUser]=useState('');
     const [password, setPassword]=useState('');
+    const [loginError, setLoginError]=useState('');
     const [passwordError, setPasswordError]=useState(false);
-    const [loginError, setLoginError]=useState(false);
 
-    function handleChange(name, value) {
-        if(name ==='email'){
+    let history = useHistory()
+
+    const handleChange = (name, value) => {
+        if(name==='email'){
             setUser(value)
-            setLoginError(false);
+            setLoginError('')   
         }
         else{
-            if(value.length >6 || value.length === 0 ){
-                setPassword(value) 
-                /* errorHandling */
-                setPasswordError(false)                  
-                setLoginError(false); 
+            if(value.length >5 || value.length === 0 ){
+                setPassword(value)
+                setLoginError('')
+                setPasswordError(false)
             }
             else{
                 setPasswordError(true)
                 setLoginError(false);
                 
             }
-            
         }
+        
+              
     }
+    
 
-    function ifMatch(param){
-        if(param.user.length >0 && param.password.length>0){
-            if(param.user ==="miluskapajuelo" && param.password ==='1234567'){
-                /* let ac = { param.user, param.password} lo desestructuramos */
-                const {user, password} = param
-                let ac = {user, password}
-                let account = JSON.stringify(ac)
-                localStorage.setItem('account', account)
-                setLoginError(false)
-            }
-            else{
-                setLoginError(true)     
-            }     
-        }
-        else{
-            setLoginError(true)
-            console.log('loginError, ', loginError)
-        }
-    }
-
-    function handleSubmit(){
-        const account = {user, password}
+     /* submit form */
+     const handleSubmit= async(e) => {
+        e.preventDefault();
+        const account = {username, password}
         if(account){
-            ifMatch(account)
+            const resp = await getToken(account);
+            if(resp.data.status !== "Error"){
+                let token= resp.data.token
+                localStorage.setItem('token', token)
+                history.push("/Products")
+                
+            }
+                setLoginError(resp.data.msg)
+            } 
         }
-    }
-
+           
     return(
         <div className="login-container">   
         <div className="login-content">
@@ -87,11 +82,11 @@ const Login = () => {
              />
             </div>
             {loginError &&
-            <Label text="email o contraseña incorrecta" classText="error-label"/>}
+            <Label text={loginError} classText="error-label"/>}
             <div className='submit-button-container'>
             <button 
-            className='submit-button'
-            onClick={handleSubmit}>Enviar</button> 
+            className='enabled-button' 
+            onClick={handleSubmit}>Enviar</button>
             </div>           
         </div>
     )

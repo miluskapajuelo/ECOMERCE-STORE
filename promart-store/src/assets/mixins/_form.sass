@@ -3,18 +3,19 @@
 $background-color: #D7CCC8
 
 
-@mixin btn($fontcolor: #FAFAFA)
+@mixin btn($fontcolor, $background)
     font-family: $font-family
     font-size: 1rem
     outline: 0
     border: 0
     width: 100%
     padding: 1rem
-    background: $primary
+    background: $background
     color: $fontcolor
     text-transform: uppercase
     border-radius: 1.6rem
     height: 3.4rem
+
 
 @mixin input($color)
     width: 100%

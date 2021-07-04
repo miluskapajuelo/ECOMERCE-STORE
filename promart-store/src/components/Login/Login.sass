@@ -7,8 +7,10 @@
 .submit-button-container
     width: 100%
     margin-top: 1.3rem
-    .submit-button
-        @include btn
+    .enabled-button
+        @include btn(#FAFAFA, $primary)
+    .disabled-button
+        @include btn($primary, #FAFAFA)
 
 @media (min-width: 48rem)
     .login-container

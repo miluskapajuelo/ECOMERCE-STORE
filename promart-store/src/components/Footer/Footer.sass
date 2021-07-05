@@ -1,0 +1,24 @@
+@import './../../global.sass'
+@import './../../assets/mixins/_element.sass'
+
+footer
+    @include displayFlex(row, flex-end, center)
+    position: fixed
+    bottom: 0
+    width: 101%
+    height: 3.8rem
+    z-index: 2
+    background-color: $white
+.section-icons
+    display: flex
+    width: 50%
+    justify-content: space-evenly
+    .icon
+        margin: 0 0.7rem
+        font-size: x-large
+
+.button
+    position: absolute
+    left: 1.9rem
+    bottom: 0.4rem
+    @include button

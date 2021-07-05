@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
 import './App.sass';
 import Login from './components/Login/Login'
-import Products from './components/Home/Products/Products'
+import Products from './components/Home/Products'
 
 function App() {
   return (

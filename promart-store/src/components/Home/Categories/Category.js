@@ -1,9 +1,11 @@
 import React from 'react';
 import './Category.sass'
 
-const Category = ({category}) => {  
+const Category = ({category,selectCategory}) => {  
     return (
-            <li className="category-contain">
+            <li 
+            className="category-contain"
+            onClick={(e) => selectCategory(e.target.innerHTML)}>
                 {category}
             </li>        
     )

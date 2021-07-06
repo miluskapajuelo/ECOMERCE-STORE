@@ -2,20 +2,23 @@ import React from 'react';
 import accounting from 'accounting';
 import './CartSelected.sass'
 
-
-const CartSelected = () => {
+const CartSelected = ({cartProduct}) => {
+    console.log(cartProduct)
     
-
     return (
+        
        <section className="cart-container">
-           <div className="img-container">imagen</div>
+           <figure className="img-content">
+                <img src={cartProduct.image} alt={cartProduct.title} width="60%" height="95%" />
+            </figure>
            <div className="description-container">
-               <div className="name-product">Apple watch</div>
-               <div className="padding">size 17</div>
+               <div className="name-product">{cartProduct.title}</div>
+               <div className="padding">{cartProduct.category}</div>
                <div className="price-container">
                    <div className="price size">
-                       {accounting.formatMoney(140)}
+                       {accounting.formatMoney(cartProduct.price)}
                    </div>
+                   
                    <div className="size">
                        - 1 +
                    </div>

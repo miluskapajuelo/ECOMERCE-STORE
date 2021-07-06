@@ -12,7 +12,8 @@ const Products = () => {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [productsAll, setProductsAll] = useState([]);
-    const [cart, setCart] = useState([]);
+    /* estado del carrito de compras */
+    const [productsCart, setProductsCart] = useState([]);
 
     const token = localStorage.getItem('token')
     const getCategories = async() => {
@@ -25,18 +26,18 @@ const Products = () => {
           console.log(err)
         }
       };
-/* 
+
      useEffect(() => {
         getCategories();
-
-    }) */
+        getProducts()
+    },[])
 
     const getProducts = async() => {
       try {
         const response = await productAll(token);
         setProducts(response) ;
         setProductsAll(response) ;
-        console.log(response)
+        console.log('response',response)
       }
       catch (err) {
         console.log(err)
@@ -48,21 +49,26 @@ const Products = () => {
       setProducts(elemento)    
     }
 
+    const addProduct=(id)=>{
+      const productSelected = products.filter((elem)=>elem.id === id)
+      setProductsCart(productsCart=>[...productSelected,...productsCart])
+   }
+   
+
     return (
       <main>
         <section>
-            <article className="category-container">
+            <ul className="category-container">
             {categories.map(categ => 
             <Category category= {categ} key={categ} selectCategory={selectCategory}/>
             )}
-            </article>
+            <li className="buttonProducts" onClick={getProducts}>Todos</li>
+            </ul>
             <article className="products-container">
-            {products.map(prod =>{
-              return <Product key={prod.id} product ={prod} cart={cart} products={products}/>})}
+            {products.map(prod =>(<Product key={prod.id} product ={prod} addProduct={addProduct}/>))}
             </article>
-            <button onClick={getProducts}></button>
-            <Footer />
         </section>
+        <Footer productsCart={productsCart} />
       </main>
     )
 }

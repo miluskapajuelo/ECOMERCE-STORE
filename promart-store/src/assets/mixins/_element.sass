@@ -1,14 +1,18 @@
 @import './../../global.sass'
 
-@mixin button
-    background-color: $primary
+@mixin button($padding)
+    margin: 0.5rem
+    background-color: #ff8508
     border: none
     color: white
-    padding: 0.9rem 2rem
+    padding: $padding
     text-align: center
     text-decoration: none
     display: inline-block
     font-size: 1rem
     border-radius: 0.8rem
+    display: flex
+    align-items: center
+    height: 12%
     &:hover
         background-color: #ff8508c7

@@ -3,11 +3,19 @@ import './Product.sass'
 import accounting from 'accounting';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faHeart} from '@fortawesome/free-solid-svg-icons'
+import {useStateValue} from '../../../module/StateProvider'
 
-const Product = ({product, addProduct}) => {
+const Product = ({product}) => {
     /* const {title, price, image, id} = product */
-
+    const [{basket}, dispatch]= useStateValue()
+    /* console.log('basket content', basket) */
     
+    const addToBasket =()=> {
+        dispatch({
+            type:'add',
+            item: product
+        })
+    }
    
 
     return (
@@ -22,7 +30,7 @@ const Product = ({product, addProduct}) => {
             <article className="third-content">
                 <div>{product.title}</div>
                 <div className="price">{accounting.formatMoney(product.price)}</div>
-                <button className="button-add" onClick={()=>{addProduct(product.id)}}>Add</button>
+                <button className="button-add" onClick={addToBasket}>add</button>
             </article>
             
         </section>

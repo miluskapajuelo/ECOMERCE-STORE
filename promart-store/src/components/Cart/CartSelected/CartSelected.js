@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import accounting from 'accounting';
 import './CartSelected.sass'
+import {useStateValue} from './../../../module/StateProvider'
 
 const CartSelected = ({cartProduct}) => {
-    console.log(cartProduct)
-    
+
+    const [{basket}, dispatch]= useStateValue()
+ 
+/*     const [qty, setNumber] = useState(qtty || 0); */
+    const removeItem =()=>{
+        dispatch({
+            type:'remove',
+            id: cartProduct})
+    }
+
     return (
         
        <section className="cart-container">
@@ -20,9 +29,10 @@ const CartSelected = ({cartProduct}) => {
                    </div>
                    
                    <div className="size">
-                       - 1 +
-                   </div>
+                   {/* <button onClick={()=>setNumber(qty - 1 >= 0 ? qty - 1 : 0 )}> - </button> {qty} <button onClick={()=>setNumber(qty + 1 )}> + </button> 
+                   */} </div>
                </div>
+               <button className="buttonRemove" /* onClick={removeItem} */>Remover</button>
            </div>
        </section>
     )

@@ -5,11 +5,21 @@ main
     height: 100%
 .order-container
     display: flex
-.cartSelected-container
-    display: flex
     flex-direction: column
-    width: 50%
+.cartSelected-container
+    width: 95%
 .table-container
-    width: 50%
-    text-align: -webkit-center
-    margin: 0.6rem
+    width: 100%
+    display: flex
+    justify-content: center
+
+@media (min-width: 48rem)
+    .order-container
+        flex-direction: row
+    .cartSelected-container
+        width: 50%
+    .table-container
+        width: 50%
+        text-align: -webkit-center
+        margin: 0.6rem
+        display: relative

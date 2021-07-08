@@ -12,6 +12,12 @@ const reducer =(state, action)=>{
                 ...state,
                 basket:[...state.basket, action.item]
             }
+            case 'update':
+                localStorage.setItem("cart", JSON.stringify([...getItemCart(), action.item]));
+                return {
+                    ...getItemCart(),
+                    basket:[...getItemCart(), action.item]
+                }
             case 'selected':
                 localStorage.setItem("selectedCart", JSON.stringify([...state.basket, action.item]));
                 return {

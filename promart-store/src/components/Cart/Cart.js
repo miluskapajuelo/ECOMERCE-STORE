@@ -4,18 +4,15 @@ import ProductsSend from './../Cart/ProductsSend/ProductsSend'
 import OrderTable from './../Cart/OrderTable/OrderTable'
 import './Cart.sass'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
-import {useHistory} from 'react-router-dom'
+
 import {getItemCart} from '../../module/cart-local'
+import Header from './../Header/Header'
 
 
 
 const Cart = () => {
 
-    let history = useHistory()
-    const back = ()=>{
-        history.push("/products")
-    }
+   
 
     const uniqueValue = () =>{
         if( getItemCart()!==null){
@@ -48,10 +45,8 @@ const Cart = () => {
     return (
         
         <main>
+            <Header title="Carrito de compras" icon="faArrowLeft" />
             <section>
-             <div className="icon" onClick={back}><FontAwesomeIcon icon={faArrowLeft} /></div>
-            
-        <h3>Carrito de compras</h3>
         <div className="order-container">
             <div className="cartSelected-container">
         {uniqueValue()? (uniqueValue().length!==0?uniqueValue().map(cartProduct =>(<CartSelected key={cartProduct.id} cartProduct ={cartProduct} />)):''):'Tu canasta esta vacía, compra algo :)'}

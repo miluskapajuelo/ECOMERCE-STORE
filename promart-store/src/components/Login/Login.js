@@ -5,6 +5,9 @@ import Input from './input/Input'
 import {getToken} from './../../services/login'
 import './Login.sass';
 import {useHistory} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTimes} from '@fortawesome/free-solid-svg-icons'
+import Header from './../Header/Header'
 
 
 
@@ -38,6 +41,11 @@ const Login = () => {
         
               
     }
+
+    const back = ()=>{
+        history.push("/products")
+    }
+
     
 
      /* submit form */
@@ -57,7 +65,11 @@ const Login = () => {
         }
            
     return(
-        <div className="login-container">   
+        <main>
+          <Header />
+        <section className="sectionLogin">
+        <div className="login-container">
+            <div className="iconLogin" onClick={back}><FontAwesomeIcon icon={faTimes} /></div>   
         <div className="login-content">
             <Title text="Iniciar sesión"/>
             <Label text="Email" classText="label-text"/>
@@ -89,6 +101,8 @@ const Login = () => {
             onClick={handleSubmit}>Enviar</button>
             </div>           
         </div>
+        </section>
+        </main>
     )
 }
 

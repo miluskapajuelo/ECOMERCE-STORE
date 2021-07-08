@@ -4,6 +4,9 @@ import { productAll } from '../../services/products'
 import Product from './Product/Product'
 import Category from './Categories/Category'
 import Footer from '../Footer/Footer'
+import Header from './../Header/Header'
+import compras from './../../assets/images/compras.png'
+import comprasmas from './../../assets/images/comprasMas.png'
 
 import './Products.sass'
 
@@ -55,7 +58,17 @@ const Products = () => {
 
     return (
       <main>
+        <Header />
+        <section className="sectionFirst">
+          <h3>Hola! 😍</h3>
+          <h5>Deseas comprar algo hoy?</h5>
+          <article className="container-carrusel">
+          <div className="margin"><img src={compras} alt="logoPromart" height="254px" width="548px"/></div>
+          <div className="margin"><img src={comprasmas} alt="logoPromart"  height="254px" width="548px"/></div>
+          </article>
+        </section>
         <section>
+        <h5 className="padding">Categorias top</h5>
             <ul className="category-container">
             {categories.map(categ => 
             <Category category= {categ} key={categ} selectCategory={selectCategory}/>

@@ -32,7 +32,7 @@ const CartSelected = ({cartProduct}) => {
     const increment=() => {
         setCount(Increments + 1 )
         dispatch({
-            type:'add',
+            type:'update',
             item: productsSelected})
     }
 
@@ -46,7 +46,7 @@ const CartSelected = ({cartProduct}) => {
         
        <section className="cart-container">
            <figure className="img-content">
-                <img src={cartProduct.image} alt={cartProduct.title} width="60%" height="95%" />
+                <img className="img" src={cartProduct.image} alt={cartProduct.title} />
             </figure>
            <div className="description-container">
                <div className="name-product">{cartProduct.title}</div>
@@ -55,12 +55,10 @@ const CartSelected = ({cartProduct}) => {
                    <div className="price size">
                        {accounting.formatMoney(cartProduct.price)}
                    </div>
-                   <div className="size">
+                   <div className="count-container">
+                        <button className="buttonSelect" onClick={increment}> + </button> 
                         <div className="counter">{Increments}</div>
-                            <div className="buttonWrap">
-                              <button onClick={increment}> + </button> 
-                              <button onClick={reduce}> - </button> 
-                            </div>
+                        <button className="buttonSelect"  onClick={reduce}> - </button> 
                    </div>
                </div>
                <button className="buttonRemove"  /* onClick={removeItem} */ >Remover</button>

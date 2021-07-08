@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Product.sass'
 import accounting from 'accounting';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,14 +8,26 @@ import {useStateValue} from '../../../module/StateProvider'
 const Product = ({product}) => {
     /* const {title, price, image, id} = product */
     const [{basket}, dispatch]= useStateValue()
-    /* console.log('basket content', basket) */
+    const [quantity, setQuantity] = useState(1);
     
-    const addToBasket =()=> {
-        dispatch({
-            type:'add',
-            item: product
-        })
+    const productsSelected ={
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image ,
+        quantity:quantity,
+        description: product.description,
+        category:product.category
+
     }
+
+    const addToBasket =()=> {
+        setQuantity(quantity)
+            dispatch({
+                type:'add',
+                item: productsSelected
+            })
+            }
    
 
     return (

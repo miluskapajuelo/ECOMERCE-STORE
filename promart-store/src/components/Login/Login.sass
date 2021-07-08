@@ -3,17 +3,33 @@
 
 .login-container
     @include displayFlex(column, center, center)
+    margin-top: 2.5rem
     
 .submit-button-container
-    width: 100%
     margin-top: 1.3rem
     .enabled-button
-        @include btn(#FAFAFA, $primary)
+        font-family: "Roboto", sans-serif
+        font-size: 1rem
+        outline: 0
+        border: 0
+        width: 100%
+        padding: 2rem
+        background: #ff8508
+        color: #FAFAFA
+        text-transform: uppercase
+        border-radius: 1.6rem
+        height: 0.1rem
+        display: flex
+        align-items: center
+        justify-content: center
     .disabled-button
         @include btn($primary, #FAFAFA)
 
+.iconLogin
+    display: flex
+    justify-content: flex-end
+    width: 15rem
 @media (min-width: 48rem)
     .login-container
-        background-color: #fbfbcd
         padding: 3.1rem
         border-radius: 1.6rem

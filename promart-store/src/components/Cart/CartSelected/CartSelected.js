@@ -3,16 +3,44 @@ import accounting from 'accounting';
 import './CartSelected.sass'
 import {useStateValue} from './../../../module/StateProvider'
 
+
 const CartSelected = ({cartProduct}) => {
 
     const [{basket}, dispatch]= useStateValue()
- 
-/*     const [qty, setNumber] = useState(qtty || 0); */
+    const [Increments, setCount] = useState(cartProduct.quantity);
+    
+
+    
     const removeItem =()=>{
         dispatch({
             type:'remove',
             id: cartProduct})
     }
+
+    const productsSelected ={
+        id: cartProduct.id,
+        title: cartProduct.title,
+        price: cartProduct.price,
+        image: cartProduct.image ,
+        quantity:1,
+        description: cartProduct.description,
+        category:cartProduct.category
+
+    }
+
+
+    const increment=() => {
+        setCount(Increments + 1 )
+        dispatch({
+            type:'add',
+            item: productsSelected})
+    }
+
+    const reduce=() => {
+        setCount(Increments - 1 >= 0 ? Increments - 1 : 0 )
+    }
+
+    
 
     return (
         
@@ -27,12 +55,15 @@ const CartSelected = ({cartProduct}) => {
                    <div className="price size">
                        {accounting.formatMoney(cartProduct.price)}
                    </div>
-                   
                    <div className="size">
-                   {/* <button onClick={()=>setNumber(qty - 1 >= 0 ? qty - 1 : 0 )}> - </button> {qty} <button onClick={()=>setNumber(qty + 1 )}> + </button> 
-                   */} </div>
+                        <div className="counter">{Increments}</div>
+                            <div className="buttonWrap">
+                              <button onClick={increment}> + </button> 
+                              <button onClick={reduce}> - </button> 
+                            </div>
+                   </div>
                </div>
-               <button className="buttonRemove" /* onClick={removeItem} */>Remover</button>
+               <button className="buttonRemove"  /* onClick={removeItem} */ >Remover</button>
            </div>
        </section>
     )

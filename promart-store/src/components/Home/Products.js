@@ -20,7 +20,6 @@ const Products = () => {
         try {
           const response = await categoryAll(token);
           setCategories(response) ;
-          console.log(response)
         }
         catch (err) {
           console.log(err)
@@ -37,7 +36,6 @@ const Products = () => {
         const response = await productAll(token);
         setProducts(response) ;
         setProductsAll(response) ;
-        console.log('response',response)
       }
       catch (err) {
         console.log(err)
@@ -68,7 +66,7 @@ const Products = () => {
             {products.map(prod =>(<Product key={prod.id} product ={prod} addProduct={addProduct}/>))}
             </article>
         </section>
-        <Footer productsCart={productsCart} />
+        <Footer/>
       </main>
     )
 }

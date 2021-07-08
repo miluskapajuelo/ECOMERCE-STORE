@@ -10,11 +10,10 @@ import {getItemCart} from '../../module/cart-local'
 import {useStateValue} from './../../module/StateProvider'
 
 
-const Footer = ({counter}) => {
+const Footer = () => {
    
     const [{basket}, dispatch]=useStateValue()
 
-    console.log(basket)
     let history = useHistory()
     
     const shoppingCart = ()=>{
@@ -25,15 +24,33 @@ const Footer = ({counter}) => {
         history.push("/products")
     }
 
+    const login =()=>{
+        history.push("/login")
+    }
+/*     getItemCart-localstoage */
+    const postElement =(item)=> {
+        dispatch({
+            type:'initial',
+            item: item
+        })
+    }
+   
+
+    useEffect(() => {
+        if(getItemCart()!==null ||getItemCart()>0 ){
+            getItemCart().forEach(elem=>postElement(elem))
+        }  
+    },[])
+
 
     return (
         <footer>
             <article className="section-button"><button className="button" onClick={home}><FontAwesomeIcon icon={faHome} /> Home</button></article>
             <article className="section-icons">
                 <div className="icon"><FontAwesomeIcon icon={faHeart} /></div>
-                {basket?.length}
+                {getItemCart()?.length}
                 <div className="icon" onClick={shoppingCart}><FontAwesomeIcon icon={faShoppingCart} /></div>
-                <div className="icon"><FontAwesomeIcon icon={faUser} /></div>
+                <div className="icon"  onClick={login}><FontAwesomeIcon icon={faUser} /></div>
             </article>
         </footer>
     )

@@ -11,9 +11,9 @@ export const postCart =async(token, id, productList)=>{
         'Content-Type': 'application/json', 
         Authorization: `Bearer ${token}`
       },
-      body:{
+      data:{
         userId:id,
-        date:'hoy',
+        date:new Date(),
         products:productList
       }
     })

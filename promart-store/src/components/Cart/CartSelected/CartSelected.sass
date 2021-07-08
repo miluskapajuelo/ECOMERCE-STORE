@@ -1,10 +1,10 @@
 @import './../../../global.sass'
 .cart-container
     display: flex
-    border: solid
+    border: 0.1rem solid #00000012
     margin: 0.6rem
     padding: 0.9rem
-    height: 33%
+    height: 13rem
     .img-content
         width: 100%
         height: 100%
@@ -19,7 +19,7 @@
         .price-container
             display: flex
         .name-product
-            font-size: 1.4rem
+            font-size: 0.9rem
         .padding
             margin: 0.1rem
 .price-container
@@ -28,5 +28,47 @@
     margin-top: 1.3rem
     .price
         font-weight: bolder
-    .size
+    .count-container
         font-size: 1.3rem
+        display: flex
+        align-items: center
+        .buttonSelect 
+            margin: 0.5rem
+            background-color: #ff8508
+            border: none
+            color: white
+            padding: 1rem
+            text-align: center
+            text-decoration: none
+            font-size: 1rem
+            border-radius: 0.8rem
+            display: flex
+            align-items: center
+            height: 0.1rem
+            width: 0.1rem
+            justify-content: center
+.buttonRemove
+    margin: 0.5rem
+    background-color: #fafafa
+    border: none
+    color: #949090c7
+    padding: 1rem
+    text-align: center
+    text-decoration: none
+    font-size: 0.7rem
+    border-radius: 0.8rem
+    display: flex
+    align-items: center
+    height: 0.1rem
+    justify-content: flex-end
+.img
+    height: 6.7rem
+    width: 4.3rem
+
+
+@media (min-width: 48rem)
+    .img
+        width:60% 
+        height:95% 
+.name-product
+        font-size: 1.4rem

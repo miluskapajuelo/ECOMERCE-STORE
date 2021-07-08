@@ -48,8 +48,10 @@ const Footer = () => {
             <article className="section-button"><button className="button" onClick={home}><FontAwesomeIcon icon={faHome} /> Home</button></article>
             <article className="section-icons">
                 <div className="icon"><FontAwesomeIcon icon={faHeart} /></div>
-                {getItemCart()?.length}
+                <div className="group">
+                <div className="counter">{getItemCart()?.length}</div>
                 <div className="icon" onClick={shoppingCart}><FontAwesomeIcon icon={faShoppingCart} /></div>
+                </div>
                 <div className="icon"  onClick={login}><FontAwesomeIcon icon={faUser} /></div>
             </article>
         </footer>

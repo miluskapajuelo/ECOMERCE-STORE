@@ -58,7 +58,7 @@ const Products = () => {
 
     return (
       <main>
-        <Header />
+        <Header head="promart"/>
         <section className="sectionFirst">
           <h3>Hola! 😍</h3>
           <h5>Deseas comprar algo hoy?</h5>

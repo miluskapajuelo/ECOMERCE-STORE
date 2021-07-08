@@ -16,7 +16,9 @@ return(
     <article className="header">
         {props.icon?<div className="icon" onClick={back}><FontAwesomeIcon icon={faArrowLeft} /></div>:''}
         {props.title?<h2>{props.title}</h2>:''}
-        <div className="display"><img src={foto} alt="logoPromart"/></div>
+        {props.head?<img src={foto} alt="logoPromart"/>:''}
+        {props.title?<div className="display"><img src={foto} alt="logoPromart"/></div>:''}
+        
     </article>
 )
 }

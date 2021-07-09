@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Promart-ecommerce/static/css/main.b1298210.chunk.css",
+    "main.js": "/Promart-ecommerce/static/js/main.10b7129d.chunk.js",
+    "main.js.map": "/Promart-ecommerce/static/js/main.10b7129d.chunk.js.map",
+    "runtime-main.js": "/Promart-ecommerce/static/js/runtime-main.c7a02262.js",
+    "runtime-main.js.map": "/Promart-ecommerce/static/js/runtime-main.c7a02262.js.map",
+    "static/js/2.7e075a07.chunk.js": "/Promart-ecommerce/static/js/2.7e075a07.chunk.js",
+    "static/js/2.7e075a07.chunk.js.map": "/Promart-ecommerce/static/js/2.7e075a07.chunk.js.map",
+    "static/js/3.f03ec080.chunk.js": "/Promart-ecommerce/static/js/3.f03ec080.chunk.js",
+    "static/js/3.f03ec080.chunk.js.map": "/Promart-ecommerce/static/js/3.f03ec080.chunk.js.map",
+    "index.html": "/Promart-ecommerce/index.html",
+    "static/css/main.b1298210.chunk.css.map": "/Promart-ecommerce/static/css/main.b1298210.chunk.css.map",
+    "static/js/2.7e075a07.chunk.js.LICENSE.txt": "/Promart-ecommerce/static/js/2.7e075a07.chunk.js.LICENSE.txt",
+    "static/media/compras.0704343e.png": "/Promart-ecommerce/static/media/compras.0704343e.png",
+    "static/media/comprasMas.35d6b349.png": "/Promart-ecommerce/static/media/comprasMas.35d6b349.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c7a02262.js",
+    "static/js/2.7e075a07.chunk.js",
+    "static/css/main.b1298210.chunk.css",
+    "static/js/main.10b7129d.chunk.js"
+  ]
+}

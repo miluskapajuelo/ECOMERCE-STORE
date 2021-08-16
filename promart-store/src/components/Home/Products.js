@@ -63,8 +63,9 @@ const Products = () => {
           <h3>Hola! 😍</h3>
           <h5>Deseas comprar algo hoy?</h5>
           <article className="container-carrusel">
-          <div className="margin"><img src={compras} alt="logoPromart" height="254px" width="548px"/></div>
-          <div className="margin"><img src={comprasmas} alt="logoPromart"  height="254px" width="548px"/></div>
+          <div className="margin"><img src={compras} alt="compras" height="254px" width="548px"/></div>
+          <div className="margin"><img src={comprasmas} alt="compras"  height="254px" width="548px"/></div>
+          <div className="margin"><img src={compras} alt="compras" height="254px" width="548px"/></div>
           </article>
         </section>
         <section>

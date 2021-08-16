@@ -5,6 +5,7 @@ export const initialState = {
 }
 
 const reducer =(state, action)=>{
+    // eslint-disable-next-line default-case
     switch(action.type){
         case 'add':
             localStorage.setItem("cart", JSON.stringify([...state.basket, action.item]));

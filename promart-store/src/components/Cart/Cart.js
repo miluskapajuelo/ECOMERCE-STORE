@@ -3,8 +3,6 @@ import CartSelected from './../Cart/CartSelected/CartSelected'
 import ProductsSend from './../Cart/ProductsSend/ProductsSend'
 import OrderTable from './../Cart/OrderTable/OrderTable'
 import './Cart.sass'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import {getItemCart} from '../../module/cart-local'
 import Header from './../Header/Header'
 
